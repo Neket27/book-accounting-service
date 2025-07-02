@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-book-table
+      author: Nikita Kulga
+      changes:
+        - createTable:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: title
+                  type: varchar(255)
+              - column:
+                  name: book_year
+                  type: bigint
+              - column:
+                  name: genre
+                  type: varchar(255)
+              - column:
+                  name: AUTHOR_ID
+                  type: bigint

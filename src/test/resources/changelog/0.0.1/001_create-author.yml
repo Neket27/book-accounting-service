@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-author-table
+      author: Nikita Kulga
+      changes:
+        - createTable:
+            tableName: authors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: BIRTH_YEAR
+                  type: bigint
