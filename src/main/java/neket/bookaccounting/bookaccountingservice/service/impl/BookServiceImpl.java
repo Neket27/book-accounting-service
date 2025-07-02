@@ -18,6 +18,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
@@ -25,6 +26,7 @@ public class BookServiceImpl implements BookService {
     private final BookMapper bookMapper;
 
     @Override
+    @Transactional
     public BookDto create(CreateBookDto dto) {
         Author author = authorRepository.findById(dto.authorId())
                 .orElseThrow(() -> new NotFoundException("Author with id: {0} not found.", dto.authorId()));
@@ -47,6 +49,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Transactional
     public BookDto update(Long id, UpdateBookDto dto) {
         Book book = find(id);
         bookMapper.update(book, dto);

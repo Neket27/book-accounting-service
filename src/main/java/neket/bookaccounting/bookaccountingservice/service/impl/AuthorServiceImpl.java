@@ -1,6 +1,5 @@
 package neket.bookaccounting.bookaccountingservice.service.impl;
 
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import neket.bookaccounting.bookaccountingservice.controller.dto.author.AuthorDto;
 import neket.bookaccounting.bookaccountingservice.controller.dto.author.CreateAuthorDto;
@@ -11,11 +10,13 @@ import neket.bookaccounting.bookaccountingservice.repository.AuthorRepository;
 import neket.bookaccounting.bookaccountingservice.service.AuthorService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class AuthorServiceImpl implements AuthorService {
 
     private final AuthorRepository repository;

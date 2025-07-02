@@ -10,13 +10,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Transactional(readOnly = true)
 public class BookRepository {
 
     @PersistenceContext
     private EntityManager em;
 
-    @Transactional
+
     public Book save(Book book) {
         if (book.getId() == null) {
             em.persist(book);
